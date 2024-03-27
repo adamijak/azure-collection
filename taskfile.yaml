@@ -1,0 +1,24 @@
+version: '3'
+
+silent: true
+
+tasks:
+  token: echo "Placeholder for token command. Edit token task in taskfile.yaml"
+  
+  "*/*":
+    vars:
+      ARG_1: '{{index .MATCH 0}}'
+      ARG_2: '{{index .MATCH 1}}'
+    cmds:
+      - task: hurl
+        vars:
+          FILE: ./collection/{{.ARG_1}}/{{.ARG_2}}.hurl
+          
+  hurl:
+    internal: true
+    cmd: |
+      {{if or .BODY .B .body .b}}
+        hurl --no-color --variables-file vars.env --variable token="$GRAPH_TOKEN" {{.FILE}}
+      {{else}}
+        hurl -i --color --variables-file vars.env --variable token="$GRAPH_TOKEN" {{.FILE}} | jq -CRr 'fromjson? // .'
+      {{end}}
