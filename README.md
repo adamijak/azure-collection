@@ -1,12 +1,12 @@
-# Microsoft Graph Collection
-This repository is collection of HTTP requests to Graph API.
+# Azure Collection
+This repository is collection of HTTP requests to Microsoft Azure and O365 services.
 It is based on two open-source tools [hurl](https://github.com/Orange-OpenSource/hurl)
 and [task](https://github.com/go-task/task).
 
 ## Installation
 Clone this repository:
 ```sh
-git clone git@github.com:adamijak/graph-collection.git
+git clone git@github.com:adamijak/azure-collection.git
 ```
 Make sure you have [hurl](https://github.com/Orange-OpenSource/hurl)
 and [task](https://github.com/go-task/task) installed.
@@ -16,22 +16,24 @@ brew install hurl go-task
 ``` 
 
 ## Usage
-To use this collection make sure you are in the root directory of this repository. Then you need to define ```GRAPH_TOKEN``` environment variable.
+To use this collection make sure you are in the root directory of this repository. Then you need to define `AZURE_TOKEN` environment variable.
 To obtain the token you can use [azure-auth](https://github.com/adamijak/azure-auth).
 
 ```sh
-export GRAPH_TOKEN=`azure-auth cert --raw -t $TENANT_ID -c $CLIENT_ID --cert $CERT_THUMBPRINT --scopes "https://graph.microsoft.com/.default"`
+# Get token with Graph API scopes
+export AZURE_TOKEN=`azure-auth cert --raw -t $TENANT_ID -c $CLIENT_ID --cert $CERT_THUMBPRINT --scopes "https://graph.microsoft.com/.default"`
 
-# Get drive by its id
-# Request is specified by collection/drives/get-by-id.hurl file
-task drives/get-by-id
+# Get drive by its id from Graph API
+# Request is specified in file "graph/drives/get-by-id.hurl"
+task graph:drives:get-by-id
 
 # Only return body without pretty print
-task drives/get-by-id b=1
+task graph:drives:get-by-id b=1
 ```
 
+You can `taskfile.templ.yaml` and rename it to `taskfile.yaml`.
+Then you can edit tasks for token retrieval and simplify the exporting of `AZURE_TOKEN` environment variable.
 ```sh
-# You can edit the task "token" in taskfile.yaml to execute command.
-# Then you can simplify process of exporting "GRAPH_TOKEN" environment variable 
-export GRAPH_TOKEN=`task token`
+# Edit token:graph task in copied taskfile.yaml
+export AZURE_TOKEN=`task token:graph`
 ```
