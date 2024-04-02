@@ -1,18 +1,18 @@
 # Azure Collection
 This repository is collection of HTTP requests to Microsoft Azure and O365 services.
-It is based on two open-source tools [hurl](https://github.com/Orange-OpenSource/hurl)
-and [task](https://github.com/go-task/task).
+It is based on three open-source tools [hurl](https://github.com/Orange-OpenSource/hurl),
+[task](https://github.com/go-task/task) and [jq](https://github.com/jqlang/jq).
 
 ## Installation
 Clone this repository:
 ```sh
 git clone git@github.com:adamijak/azure-collection.git
 ```
-Make sure you have [hurl](https://github.com/Orange-OpenSource/hurl)
-and [task](https://github.com/go-task/task) installed.
+Make sure you have [hurl](https://github.com/Orange-OpenSource/hurl),
+[task](https://github.com/go-task/task) and [jq](https://github.com/jqlang/jq) installed.
 ### Brew
 ```sh
-brew install hurl go-task
+brew install hurl go-task jq
 ``` 
 
 ## Usage
