@@ -1,4 +1,4 @@
-# Azure Collection
+# Azure HTTP
 This repository is collection of HTTP requests to Microsoft Azure and O365 services.
 It is based on three open-source tools [hurl](https://github.com/Orange-OpenSource/hurl),
 [task](https://github.com/go-task/task) and [jq](https://github.com/jqlang/jq).
