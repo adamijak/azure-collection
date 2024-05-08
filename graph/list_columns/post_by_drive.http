@@ -1,0 +1,19 @@
+@drive_id=
+
+POST https://graph.microsoft.com/v1.0/drives/{{drive_id}}/list/columns
+Authorization: Bearer {{token}}
+
+{
+    "description": "very nice column",
+    "enforceUniqueValues": false,
+    "hidden": false,
+    "indexed": false,
+    "required": false,
+    "name": "VeryNiceColumn",
+    "text": {
+        "allowMultipleLines": false,
+        "appendChangesToExistingText": false,
+        "linesForEditing": 0,
+        "maxLength": 255
+    }
+}

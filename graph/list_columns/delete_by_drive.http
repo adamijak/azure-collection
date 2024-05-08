@@ -1,0 +1,6 @@
+@drive_id=
+@column_id=
+
+DELETE https://graph.microsoft.com/v1.0/drives/{{drive_id}}/list/columns/{{column_id}}
+Authorization: Bearer {{token}}
+

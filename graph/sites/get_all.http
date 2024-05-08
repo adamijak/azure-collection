@@ -1,0 +1,2 @@
+GET https://graph.microsoft.com/v1.0/sites
+Authorization: Bearer {{token}}

@@ -1,0 +1,6 @@
+@base=
+@site_name=
+@list_id=
+GET https://{{base}}.sharepoint.com/sites/{{site_name}}/_api/web/lists('{{list_id}}')
+Authorization: Bearer {{token}}
+Accept: application/json

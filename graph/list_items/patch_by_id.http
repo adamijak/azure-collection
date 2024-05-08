@@ -1,0 +1,9 @@
+@drive_id=
+@item_id=
+
+PATCH https://graph.microsoft.com/v1.0/drives/{{drive_id}}/list/items/{{item_id}}
+Authorization: Bearer {{token}}
+
+{
+    "VeryNiceColumn": "NewValue"
+}

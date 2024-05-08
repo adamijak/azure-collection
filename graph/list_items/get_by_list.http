@@ -1,0 +1,5 @@
+@site_id=
+@list_id=
+
+GET https://graph.microsoft.com/v1.0/sites/{{site_id}}/lists/{{list_id}}/items
+Authorization: Bearer {{token}}

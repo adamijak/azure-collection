@@ -1,0 +1,4 @@
+@drive_id=
+
+GET https://graph.microsoft.com/v1.0/drives/{{drive_id}}/list/items
+Authorization: Bearer {{token}}
